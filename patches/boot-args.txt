@@ -1,0 +1,9 @@
+# 解决 DriverKit HID（HIDRM）卡死所需的最小 boot-args 变更
+#
+# 在 config.plist 的 NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82 > boot-args 追加：
+dk=0x0
+
+# 若 dk=0x0 导致其他设备异常，改用（仅关闭 DriverKit entitlement 检查）：
+# dk=0x8001
+
+# 注意：同一条 boot-args 必须同时加入 NVRAM > Delete，否则旧值不会更新。
